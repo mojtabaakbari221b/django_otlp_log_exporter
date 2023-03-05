@@ -5,11 +5,11 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="django-otlp-log-exporter",
-    version="1.0.0",
+    version="1.0.2",
     author="Mojtaba Akbari",
     author_email="mojtaba.akbari.221b@gmail.com",
     packages=["otlp_exporter"],
-    description="Django log handler for export your logs to otlp servers. like signoz and etc..",
+    description="integrate Django & SDK provided by OpenTelemetry and directly forward the logs from the application to OpenTelemetry.",
     long_description=description,
     long_description_content_type="text/markdown",
     url="https://github.com/mojtabaakbari221b/django_otlp_log_exporter",
