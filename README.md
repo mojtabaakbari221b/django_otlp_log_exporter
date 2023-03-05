@@ -16,7 +16,7 @@ Here, the logs of the application are directly collected by the OpenTelemetry re
 
 In this approach you can modify your logging library that is used by the application to use the logging SDK provided by OpenTelemetry and directly forward the logs from the application to OpenTelemetry. This approach removes any need for agents/intermediary medium but loses the simplicity of having the log file locally.
 
-![alt text](https://github.com/mojtabaakbari221b/django_otlp_log_exporter/blob/main/direct_to_collector.png)
+![https://github.com/mojtabaakbari221b/django_otlp_log_exporter/blob/main/direct_to_collector.png](https://github.com/mojtabaakbari221b/django_otlp_log_exporter/blob/main/direct_to_collector.png)
 
 ## Our Approach
 
