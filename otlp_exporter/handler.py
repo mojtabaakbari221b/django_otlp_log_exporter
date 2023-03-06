@@ -7,6 +7,7 @@ from opentelemetry.sdk._logs import (
     LoggerProvider,
     LoggingHandler,
 )
+from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import (
@@ -27,7 +28,13 @@ class DirectWriteLoggingHandler(LoggingHandler):
             BatchSpanProcessor(ConsoleSpanExporter())
         )
 
-        log_provider = LoggerProvider()
+        log_provider = LoggerProvider(
+            resource=Resource.create(
+                {
+                    "tag" : configs["tag"],
+                },
+            ),
+        )
         set_logger_provider(log_provider)
 
         exporter = OTLPLogExporter(
@@ -41,8 +48,9 @@ class DirectWriteLoggingHandler(LoggingHandler):
     def _load_settings(self):
         """load configuration from settings.py and return a dict"""
         config = {
-            "endpoint": self._load_settings_option("OTLP_ENDPOINT"),
-            "is_secure": self._load_settings_option("OTLP_IS_SECURE"),
+            "endpoint": self._load_settings_option("OTLP_ENDPOINT", "http://localhost:4317"),
+            "is_secure": self._load_settings_option("OTLP_IS_SECURE", True),
+            "tag": self._load_settings_option("OTLP_TAG", "localhost debug"),
         }
 
         return config

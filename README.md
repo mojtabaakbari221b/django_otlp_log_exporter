@@ -31,8 +31,9 @@ pip install django-otlp-log-exporter
 ## Configuration (settings.py)
 
 ```python
-OTLP_ENDPOINT = env('OTLP_ENDPOINT') # its endpoint of your opentelementry collector listen on
-OTLP_IS_SECURE = env('OTLP_IS_SECURE') # its bool
+OTLP_ENDPOINT = env('OTLP_ENDPOINT') # its endpoint of your opentelementry collector listen on, defult= http://localhost:4317
+OTLP_IS_SECURE = env('OTLP_IS_SECURE') # its bool, default= True
+OTLP_TAG = env('OTLP_TAG') # for seprate logs, default= localhost debug
 ```
 
 ```python

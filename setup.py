@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="django-otlp-log-exporter",
-    version="1.0.2",
+    version="1.0.3",
     author="Mojtaba Akbari",
     author_email="mojtaba.akbari.221b@gmail.com",
     packages=["otlp_exporter"],
