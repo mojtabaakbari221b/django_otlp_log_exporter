@@ -39,7 +39,7 @@ class DirectWriteLoggingHandler(LoggingHandler):
 
         exporter = OTLPLogExporter(
             endpoint=configs["endpoint"],
-            insecure=configs["is_secure"],
+            insecure=not configs["is_secure"],
         )
         log_provider.add_log_record_processor(BatchLogRecordProcessor(exporter))
 
